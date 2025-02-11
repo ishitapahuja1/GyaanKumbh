@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Room</title>
+  <link rel="stylesheet" href="stylestudy1.css">
+</head>
+<body>
+  <div id="studyroom">
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+      <source src="forstudyroom.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Timer -->
+    <div id="timer">00:00:00</div>
+
+    <!-- Timer Control Buttons -->
+    <div id="timer-controls">
+      <button id="start-btn">Start Timer</button>
+      <button id="stop-btn">Stop Timer</button>
+      <button id="reset-btn">Reset Timer</button>
+      <input type="number" id="countdown-input" placeholder="Set countdown (secs)" />
+      <button id="countdown-btn">Start Countdown</button>
+    </div>
+
+    <!-- To-Do List -->
+    <div id="todo">
+      <h3>To-Do List</h3>
+      <ul>
+        <li><input type="checkbox"> Read Chapter 4</li>
+        <li><input type="checkbox"> Practice Math Problems</li>
+        <li><input type="checkbox"> Write Notes</li>
+      </ul>
+    </div>
+
+    <!-- Exit Button -->
+    <button id="exit-btn" onclick="exitRoom()">Exit</button>
+
+    <!-- Spotify Playlist -->
+    <div id="spotify">
+      <iframe style="border-radius:12px" 
+              src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator" 
+              width="300" 
+              height="80" 
+              frameBorder="0" 
+              allowfullscreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    // Timer Variables
+    let timerInterval;
+    let seconds = 0;
+    let timerRunning = false;
+
+    // Timer Display
+    const timerElement = document.getElementById("timer");
+
+    // Start Timer Function
+    function startTimer() {
+      if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+          seconds++;
+          updateTimerDisplay();
+        }, 1000);
+      }
+    }
+
+    // Stop Timer Function
+    function stopTimer() {
+      clearInterval(timerInterval);
+      timerRunning = false;
+    }
+
+    // Reset Timer Function
+    function resetTimer() {
+      clearInterval(timerInterval);
+      seconds = 0;
+      updateTimerDisplay();
+      timerRunning = false;
+    }
+
+    // Countdown Function
+    function startCountdown() {
+      let countdownTime = document.getElementById("countdown-input").value;
+      if (countdownTime > 0) {
+        seconds = countdownTime;
+        updateTimerDisplay();
+        timerInterval = setInterval(() => {
+          if (seconds > 0) {
+            seconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            alert("Countdown Finished!");
+          }
+        }, 1000);
+      }
+    }
+
+    // Update Timer Display
+    function updateTimerDisplay() {
+      const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+      const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+      const secs = String(seconds % 60).padStart(2, "0");
+      timerElement.textContent = `${hrs}:${mins}:${secs}`;
+    }
+
+    // Event Listeners
+    document.getElementById("start-btn").addEventListener("click", startTimer);
+    document.getElementById("stop-btn").addEventListener("click", stopTimer);
+    document.getElementById("reset-btn").addEventListener("click", resetTimer);
+    document.getElementById("countdown-btn").addEventListener("click", startCountdown);
+
+    // Exit Room Function
+    function exitRoom() {
+      alert("Exiting the Study Room!");
+      window.close(); // May not work in all browsers due to security settings
+    }
+  </script>
+</body>
+</html>
