@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my first website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Modak&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background:url("abs-1850926_1280.jpg");
+            background-size:cover;
+            
+            background-repeat: no-repeat;
+            margin:0px;
+            padding:0px;
+
+        }
+        .header1 {
+            display: flex;
+            align-items: flex-start; /* Align them at the top */
+           font-weight:100;
+            font-family: "Modak", serif;
+        }
+        .left{
+            
+            display:inline-block;
+            margin:20px 20px;
+            color:white;
+            padding:10px;
+            height:150px;
+            width:150px;
+            align-items:center;
+            display:flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; 
+            
+
+        }
+        .right{
+            
+            display:inline;
+            margin:0px 20px 0px 0px;;
+            position:absolute;
+            right:34px;
+            top:20px;
+            color:white;
+            padding:10px;
+            
+
+
+
+        }
+        .center{
+            
+            display:block;
+            color:white;
+            padding:10px;
+            margin: 20px auto;
+            width:33%;
+            box-sizing:border-box;
+            
+            
+            
+
+            
+        }
+        .center li{
+            float:left;
+            margin:20px;
+            font-size:15px;
+        }
+        
+        .center li a{
+            list-style: none;
+            color:white;
+            float:left;
+            text-decoration:none;
+        }
+        .center li a:hover{
+            text-decoration:underline;
+            color:grey;
+        }
+        #img1{
+            width:100px;
+            filter:invert(100%);
+            text-align: center;
+
+            
+        }
+        #hehe{
+            text-align:center;
+        }
+        .btn{
+            margin:0px 20px;
+            
+            border-radius:5px;
+            cursor:pointer;
+
+            
+            
+        }
+        .btn:hover{
+            background-color:grey;
+            color:aquamarine;
+        }
+        .container{
+            color:white;
+            font-family: "Modak", serif;
+            font-weight:100;
+            width:30%;
+            margin:auto;
+            position:absolute;
+            right:50px;
+            
+        }
+        fieldset{
+            border-radius:40px;
+            border:6px solid white;
+            padding:20px;
+        }
+        legend{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header1">
+        <div class="left">
+
+            <img src="istockphoto-472633394-1024x1024.jpg" id="img1" >
+            <p id="hehe">Bhavya's Fitness</p>
+
+        </div>
+        <div class="center"><ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Fitness calculator</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+</div>
+        <div class="right">
+            <button class="btn">Call us</button>
+            <button class="btn">Email us</button>
+
+
+
+    </header>
+    <div class="container">
+        <fieldset>
+            <legend>Welcome to my Gym</legend>
+            <form>
+                <label for="name">Enter your name</label>
+                <input type="text" id="name" placeholder="enter your name here">
+                <br>
+                <br>
+
+                <label for="class">Enter your roll no</label>
+                <input type="number" id="class" placeholder="enter your roll no">
+                <br>
+                <br>
+
+                <input type="submit" value="click over here">
+                <input type="date" placeholder="Enter your dob">
+                <br>
+                <br>
+
+    
+                <button class="btn">Submit</button>
+            </form>
+        </fieldset>
+        
+    
+    
+    
+        </form>
+    </div>
+    
+</body>
+</html>

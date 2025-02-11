@@ -1,0 +1,213 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#navbar {
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 0px;
+}
+
+#logo img {
+    height: 5rem;
+    margin: 0.3rem 0.7rem;
+    border-radius: 5%;
+}
+
+#user-pic img {
+    height: 3rem;
+    margin: 0.3rem 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#navbar ul {
+    width: 100%;
+    display: flex;
+    text-align: left;
+}
+
+#navbar ul li {
+    display: inline-block;
+    list-style: none;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#navbar ul li a {
+    display: block;
+    color: black;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    border-radius: 40%;
+}
+
+#navbar ul li a:hover {
+    color: white;
+    background-color: burlywood;
+}
+
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(249, 249, 204, 0.656);
+    border-radius: 0.4rem 0 0 0.4rem;
+    outline: none;
+}
+
+.search-button {
+    padding: 0.3rem 0.7rem;
+    background-color: rgba(249, 249, 204, 0.656);
+    border: none;
+    border-radius: 0 0.4rem 0.4rem 0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: white;
+}
+
+.questionans {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem 1rem;
+}
+
+.questoans {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    width: 100%;
+}
+
+.questoans h3{
+    padding:1.5rem 0rem; 
+    font-size: 2.2rem;
+}
+
+.question {
+    border: 0.1rem solid black;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+}
+.question p{
+    font-size: 1.1rem;
+}
+
+textarea.text {
+    width: 100%;  
+    height: 5rem;  
+    padding: 0.5rem; 
+    font-size: 1rem;  
+    box-sizing: border-box;  
+}
+
+.add-options button {
+    background-color:burlywood;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-options button:hover {
+    background-color: bisque;
+}
+
+.add-question {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 0.5rem solid #ddd;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    margin: 1rem 0;
+}
+
+.add-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.relques {
+    width: 30%;
+    padding: 1rem 1rem;
+}
+
+.relques h3{
+    padding:1.5rem 0rem; 
+    font-size: 2.2rem;
+}
+
+.ans-1 {
+    border: 0.1rem solid black;
+    margin: 1rem 0;
+}
+
+.ans-2 {
+    border: 0.1rem solid black;
+    margin: 1rem 0;
+}
+
+.ans-3 {
+    border: 0.1rem solid black;
+    margin: 1rem 0;
+}
+
+.ans-4 {
+    border: 0.1rem solid black;
+    margin: 1rem 0;
+}
+
+.ans-5 {
+    border: 0.1rem solid black;
+    margin: 1rem 0;
+}
+
+.answers p {
+    padding: 0.7rem;
+    font-size: 1rem;
+}
+
+.landr{
+    display:flex;
+}
+
+.report{
+    margin:0.4rem 1rem;
+    color:red;
+    font-size: 0.95rem;
+}
+
+.likes {
+    margin: 0.4rem 1rem;
+}
+
+.likebtn {
+    height: 20px;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+.relques ul li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0.5rem;
+}
