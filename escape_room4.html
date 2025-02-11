@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Destiny</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url("https://thumbs.dreamstime.com/b/room-three-doors-brick-wall-brick-wall-generative-ai-ai-generated-room-three-doors-brick-wall-brick-288975079.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .option {
+            background: #444;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .option:hover {
+            transform: scale(1.1);
+            background: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="tense-horror-background-174809.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1>Choose Your Destiny</h1>
+        <p>There are 3 doors in front of you which will decide your destiny...</p>
+        <p>One door contains a series of 3 questions. Answer them correctly to reach the invaluable treasure.</p>
+        <p>The second door contains 6 questions with the same goal. The third door is a dead end... Choose wisely.</p>
+        <div class="options">
+            <div class="option" onclick="chooseDoor(1)">Door 1</div>
+            <div class="option" onclick="chooseDoor(2)">Door 2</div>
+            <div class="option" onclick="chooseDoor(3)">Door 3</div>
+        </div>
+    </div>
+
+    <script>
+        function chooseDoor(door) {
+            if (door === 1) {
+                location.href = "deadend.html";
+            } else if (door === 2) {
+                location.href = "door2.html";
+            } else if (door === 3) {
+                location.href = "door3.html";
+            }
+        }
+    </script>
+</body>
+
+</html>

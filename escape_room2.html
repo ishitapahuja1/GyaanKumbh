@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooky Encounter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url("https://www.shutterstock.com/image-photo/scary-house-mysterious-horror-forest-600nw-794084761.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Georgia', serif;
+        }
+
+        .story-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .story-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .story-box p {
+            display: inline-block;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+
+        .question-box {
+            display: none;
+        }
+
+        .question-box h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .options button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .options button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="tense-horror-background-174809.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="story-box" id="story-box">
+        <h1>A Chilling Encounter</h1>
+        <p id="story-text"></p>
+        <div class="question-box" id="question-box">
+            <h2>The Riddle Awaits</h2>
+            <p id="question-text"></p>
+            <div class="options">
+                <button onclick="checkAnswer(false)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+                    est.</button>
+                <button onclick="checkAnswer(false)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+                    quae?</button>
+                <button onclick="checkAnswer(true)">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil,
+                    excepturi?</button>
+                <button onclick="checkAnswer(false)">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
+                    corporis.</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const story =
+            "As you wander through the dense forest, an eerie silhouette catches your eye—a shadowy, decrepit house standing alone amidst the towering trees. The night is closing in, and staying out here is not an option; the wild animals—or perhaps something far worse—are bound to find you. With no other choice, you cautiously approach the house. However, as you reach the creaking door, you discover a chilling twist: the house demands an answer to a riddle before it will allow you to step inside. Failure is not an option, for your survival depends on it.";
+
+
+        const question = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis doloribus consectetur, sequi culpa officiis aliquid ducimus sunt necessitatibus fugit debitis.";
+        const storyTextElement = document.getElementById("story-text");
+        const storyBox = document.getElementById("story-box");
+        const questionBox = document.getElementById("question-box");
+        const questionTextElement = document.getElementById("question-text");
+
+        let charIndex = 0;
+
+        // Typing animation for the story
+        function typeStory() {
+            if (charIndex < story.length) {
+                storyTextElement.textContent += story.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeStory, 20); // Adjust typing speed
+            } else {
+                setTimeout(fadeOutStory, 1000); // Pause before fade-out
+            }
+        }
+
+        // Fade out the story and fade in the question
+        function fadeOutStory() {
+            storyBox.style.opacity = "0"; // Fade out
+            setTimeout(() => {
+                storyTextElement.textContent = ""; // Clear story
+                questionBox.style.display = "block"; // Show question box
+                storyBox.style.opacity = "1"; // Fade back in
+                charIndex = 0; // Reset index for typing
+                typeQuestion(); // Start typing question
+            }, 1000); // Delay for fade-out effect
+        }
+
+        // Typing animation for the question
+        function typeQuestion() {
+            if (charIndex < question.length) {
+                questionTextElement.textContent += question.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeQuestion, 20); // Adjust typing speed
+            }
+        }
+
+        // Check the answer and redirect accordingly
+        function checkAnswer(isCorrect) {
+            if (isCorrect) {
+                window.location.href = "escape_room3.html"; // Redirect for correct answer
+            } else {
+                window.location.href = "deadend.html"; // Redirect for incorrect answer
+            }
+        }
+
+        // Start the story typing effect
+        typeStory();
+    </script>
+</body>
+
+</html>

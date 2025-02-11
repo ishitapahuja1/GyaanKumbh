@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://static.vecteezy.com/system/resources/thumbnails/026/901/858/small_2x/ai-generated-ai-generative-mist-magic-fog-night-dark-forest-tree-jungle-landscape-background-scary-nature-outdoor-adventure-explore-travel-vibe-style-graphic-art-photo.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 30px;
+            font-weight: bold;
+            white-space: pre-wrap;
+            overflow: hidden;
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        .line {
+            display: inline-block;
+            white-space: nowrap;
+            margin-bottom: 10px;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Blood dripping effect on the button border */
+        .exit-button {
+            background-color: red;
+            border: 5px solid darkred;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-weight: bold;
+            z-index: 10;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .exit-button:focus {
+            outline: none;
+        }
+
+        .exit-button::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            animation: drip 2s infinite;
+            transform: translateX(-50%);
+        }
+
+        @keyframes drip {
+            0% {
+                top: 100%;
+                width: 10px;
+                height: 10px;
+            }
+
+            50% {
+                top: 110%;
+                width: 12px;
+                height: 12px;
+            }
+
+            100% {
+                top: 120%;
+                width: 15px;
+                height: 15px;
+            }
+        }
+
+        .exit-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            background: linear-gradient(to bottom, red 50%, transparent 50%);
+            background-size: 100% 200%;
+            animation: blood-drip 1s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes blood-drip {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        .exit-button:hover {
+            background-color: darkred;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Spooky Start Game Button */
+        .start-game-button {
+            display: none;
+            background-color: #800000;
+            border: 3px solid #660000;
+            color: white;
+            font-size: 22px;
+            padding: 20px 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 80px;
+            /* Move the button a little higher */
+            transform: scale(1);
+            animation: spooky-appear 2s forwards;
+        }
+
+        @keyframes spooky-appear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .start-game-button:hover {
+            background-color: darkred;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            animation: spooky-hover 1s infinite;
+        }
+
+        @keyframes spooky-hover {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="tense-horror-background-174809.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="typing-effect" id="typing-text"></div>
+
+
+
+
+    <button class="start-game-button" id="start-game-btn" onclick="window.location.href='escape_room2.html';">Start
+        Game</button>
+    <button class="exit-button" onclick="window.location.href='index.html';">Exit</button> <!-- Exit Button -->
+
+    <script>
+        const text =
+            "Wake up, adventurer! You’ve just opened your eyes to find yourself trapped in the heart of the eerie Dreadwood Forest.Whispers of a hidden treasure deep within its cursed trees are all around, but there’s a catch – the forest is as dangerous as it is mysterious.To escape alive, you’ll need to navigate its dark secrets and uncover the treasure.Fail to do so, and well... let's just say, the forest claims all who wander too long.";
+
+        const typingTextElement = document.getElementById("typing-text");
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        const typingSpeed = 50;
+        const lineDelay = 1000;
+
+        const lines = text.split(' ').reduce((acc, word) => {
+            const lastLine = acc[acc.length - 1];
+            if (lastLine.length + word.length + 1 < 80) {
+                acc[acc.length - 1] = lastLine + ' ' + word;
+            } else {
+                acc.push(word);
+            }
+            return acc;
+        }, ['']);
+
+        function typeLine(line) {
+            const lineElement = document.createElement('div');
+            lineElement.classList.add('line');
+            typingTextElement.appendChild(lineElement);
+
+            let currentLine = '';
+            let currentCharIndex = 0;
+
+            const typeChar = setInterval(() => {
+                currentLine += line[currentCharIndex];
+                lineElement.textContent = currentLine;
+                currentCharIndex++;
+
+                if (currentCharIndex === line.length) {
+                    clearInterval(typeChar);
+                    lineIndex++;
+                    if (lineIndex < lines.length) {
+                        setTimeout(() => typeLine(lines[lineIndex]), lineDelay);
+                    } else {
+                        // Show the Start Game button after typing is done
+                        setTimeout(() => {
+                            document.getElementById("start-game-btn").style.display = 'inline-block';
+                        }, 500);
+                    }
+                }
+            }, typingSpeed);
+        }
+
+        typeLine(lines[lineIndex]);
+
+        function startGame() {
+            window.location.href = 'escape_room2.html';  // This would navigate to the game's page
+        }
+
+        function openAboutUs() {
+            window.location.href = 'aboutus.html';  // Open the About Us page
+        }
+    </script>
+
+</body>
+
+</html>

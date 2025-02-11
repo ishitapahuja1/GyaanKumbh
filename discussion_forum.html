@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum</title>
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column; /* Updated to include navbar */
+            align-items: center;
+        }
+
+        #navbar {
+            background-color: bisque;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem;
+            width: 100%; /* Ensure navbar spans the full width */
+        }
+
+        #logo img {
+            height: 5rem;
+            margin: 0.3rem 0.7rem;
+            border-radius: 5%;
+        }
+
+        #user-pic img {
+            height: 3rem;
+            margin: 0.3rem 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #navbar ul {
+            display: flex;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+
+        #navbar ul li {
+            display: inline-block;
+            list-style: none;
+            font-size: 1rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #navbar ul li a {
+            display: block;
+            color: black;
+            padding: 0.7rem 1rem;
+            text-decoration: none;
+            border-radius: 40%;
+        }
+
+        #navbar ul li a:hover {
+            color: white;
+            background-color: burlywood;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 0.3rem 0.7rem;
+            border: 1px solid rgba(249, 249, 204, 0.656);
+            border-radius: 0.4rem 0 0 0.4rem;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 0.3rem 0.7rem;
+            background-color: rgba(249, 249, 204, 0.656);
+            border: none;
+            border-radius: 0 0.4rem 0.4rem 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: white;
+        }
+
+        /* Remaining styles (already provided in the original code) */
+        .main-container {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .main-container {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .content {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        .aside {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centers the boxes vertically */
+            gap: 20px;
+        }
+
+        .aside-box {
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            width: 80%; /* Adjust width to maintain consistency */
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .add-question {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .add-question textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        .add-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .add-options button {
+            background-color:burlywood;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .add-options button:hover {
+            background-color: bisque;
+        }
+
+        .questions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .question {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+            color: black;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .question:hover {
+            box-shadow: 0 4px 8px bisque;
+        }
+
+        .question-tags {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #e0e0e0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .karma {
+            font-weight: bold;
+            color: burlywood;
+        }
+        textarea {
+            box-sizing: border-box;
+        }
+        .aside:hover{
+            box-shadow: bisque;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo_hackathon.jpg" alt="Gyaankumbh">
+        </div>
+        <ul>
+            <li class="item1"><a href="index.html">About Us</a></li>
+            <li class="item2"><a href="#">Study Material</a></li>
+            <li class="item3"><a href="discussion_forum.html">Discussion Forum</a></li>
+            <li class="item4"><a href="#">Challenges and Quizzes</a></li>
+            <li class="item4"><a href="escape_room.html">Escape Rooms</a></li>
+            <li class="item5"><a href="studyroom.html">Study Rooms</a></li>
+        </ul>
+        <form class="search-form" action="/search" method="GET">
+            <input type="text" name="q" class="search-input" placeholder="Search...">
+            <button type="submit" class="search-button">🔍</button>
+        </form>
+        <div id="user-pic">
+            <img src="https://th.bing.com/th/id/OIP.f3DM2upCo-p_NPRwBAwbKQAAAA?rs=1&pid=ImgDetMain" alt="user-pic" onclick="location.href='hackathon.html'" style="cursor: pointer;">
+        </div>
+    </nav>
+    
+
+          
+    <div class="main-container">
+        <!-- Main Content -->
+        <div class="content">
+            <div class="container">
+                <!-- Add Question Section -->
+                <div class="add-question">
+                    <textarea placeholder="Type your question here..."></textarea>
+                    <div class="add-options">
+                        <div>
+                            <button onclick="document.getElementById('fileInput').click()">Upload File</button>
+                        <input type="file" id="fileInput" style="display:none" onchange="handleFiles(this.files)">
+                            <button onclick="document.getElementById('fileInput').click()">Upload Image</button>
+                        <input type="file" id="fileInput" style="display:none" onchange="handleFiles(this.files)">
+                            <button>Style Text</button>
+                        </div>
+                        <button>Add Question</button>
+                    </div>
+                </div>
+
+                <!-- Questions Section -->
+                <div class="questions">
+                    <!-- Question 1 -->
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minus similique officiis recusandae neque quia eligendi cumque et, minima libero veniam quisquam quos corrupti quis voluptates, molestias velit dolores pariatur.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Intermediate</span>
+                                <span class="tag">Exam: GATE</span>
+                            </div>
+                            <span class="karma">20 Karma</span>
+                        </div>
+                    </a>
+
+                    <!-- Question 2 -->
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora expedita quam quas adipisci autem voluptas quia corrupti libero consequuntur magnam.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Beginner</span>
+                                <span class="tag">Exam: NEET PG</span>
+                            </div>
+                            <span class="karma">15 Karma</span>
+                        </div>
+                    </a>
+
+                    <!-- Question 3 -->
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, facilis.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Advanced</span>
+                                <span class="tag">Exam: CAT</span>
+                            </div>
+                            <span class="karma">25 Karma</span>
+                        </div>
+                    </a>
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis mollitia eaque quidem, error nostrum necessitatibus exercitationem repellendus veniam qui sequi.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Advanced</span>
+                                <span class="tag">Exam: CAT</span>
+                            </div>
+                            <span class="karma">25 Karma</span>
+                        </div>
+                    </a>
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis mollitia eaque quidem, error nostrum necessitatibus exercitationem repellendus veniam qui sequi.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Advanced</span>
+                                <span class="tag">Exam: CAT</span>
+                            </div>
+                            <span class="karma">25 Karma</span>
+                        </div>
+                    </a>
+                    <a href="disformans.html" class="question">
+                        <div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis mollitia eaque quidem, error nostrum necessitatibus exercitationem repellendus veniam qui sequi.</p>
+                        </div>
+                        <div class="question-tags">
+                            <div class="tags">
+                                <span class="tag">Level: Advanced</span>
+                                <span class="tag">Exam: CAT</span>
+                            </div>
+                            <span class="karma">25 Karma</span>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="aside">
+            <div class="aside-box">
+                <h3>Total Karma Points</h3>
+                <p>1403</p>
+                <h3>People Live</h3>
+                <p>500</p>
+            </div>
+            <div class="aside-box">
+                <h3>Bookmarked Questions</h3>
+                <p>10</p>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

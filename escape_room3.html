@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url("https://img.freepik.com/premium-photo/attic-haunted-house-filled-with-dusty-antiques-broken-mirror-single-ray-light-illuminating-eerie-scene_1271644-3670.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Georgia', serif;
+        }
+
+        .message-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            text-align: left;
+        }
+
+        .message-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .message-box p {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="tense-horror-background-174809.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="message-box" id="message-box">
+        <h1>Congratulations!</h1>
+        <p id="message-text"></p>
+    </div>
+
+    <script>
+        const message =
+            "Congratulations on choosing the correct answer! You have successfully entered the house and now have a shelter to protect you from the unknowns, at least—or that's what you think...\n\n" +
+            "As you wander through the dark, spooky house, you find three doors in front of you.";
+
+        const messageTextElement = document.getElementById("message-text");
+        let charIndex = 0;
+
+        // Typing animation for the message
+        function typeMessage() {
+            if (charIndex < message.length) {
+                messageTextElement.textContent += message.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeMessage, 30); // Adjust typing speed
+            } else {
+                setTimeout(redirectToNextPage, 1000); // Redirect after a short delay
+            }
+        }
+
+        // Function to redirect to the next page
+        function redirectToNextPage() {
+            window.location.href = "escape_room4.html"; // Replace with your next page URL
+        }
+
+        // Start the typing effect
+        typeMessage();
+    </script>
+</body>
+
+</html>
