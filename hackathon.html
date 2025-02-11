@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(180, 140, 81);
+            
+            
+            
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            margin: 50px auto;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-container {
+            flex: 2;
+            padding: 20px;
+            background-color: bisque;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-container:hover {
+            background-color: burlywood;
+        }
+        *{
+    margin:0px;
+    padding:0px; 
+    box-sizing: border-box; 
+}
+
+#navbar{
+    background-color: bisque;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    position:relative;
+    top:0px;
+}
+
+#logo img{
+    height:5rem;
+    margin:0.3rem 0.7rem;
+    border-radius: 5%;
+}
+
+#user-pic img{
+    height:3rem;
+    margin:0.3rem 0.7rem;
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+#navbar ul{
+    width:100%;
+    display:flex;
+    text-align: left;
+}
+
+#navbar ul li{
+    display:inline-block;
+    list-style: none;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#navbar ul li a{
+    display: block;
+    color:black;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    border-radius: 40%;
+}
+
+#navbar ul li a:hover{
+    color:white;
+    background-color: burlywood;
+}
+
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(249, 249, 204, 0.656);
+    border-radius: 0.4rem 0 0 0.4rem;
+    outline: none;
+}
+
+.search-button {
+    padding: 0.3rem 0.7rem;
+    background-color: rgba(249, 249, 204, 0.656);
+    border: none;
+    border-radius: 0 0.4rem 0.4rem 0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: white;
+}
+
+        .karma-container {
+            flex: 1;
+            padding: 20px;
+            background-color: bisque;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .karma-container:hover {
+            background-color: burlywood;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: lightgray;
+            margin-right: 20px;
+            background-image: url(https://th.bing.com/th/id/OIP.f3DM2upCo-p_NPRwBAwbKQAAAA?rs=1&pid=ImgDetMain);
+            background-size: contain;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .username {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .join-date {
+            font-size: 0.9em;
+        }
+
+        .level-bar {
+            margin-top: 10px;
+            height: 10px;
+            width: 100%;
+            background-color: lightgray;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .level-progress {
+            height: 100%;
+            background-color: burlywood;
+            border-radius: 5px;
+            width: 70%;
+        }
+
+        .karma-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .karma-points {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: black;
+        }
+
+        .karma-description {
+            font-size: 0.9em;
+            color: black;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: bisque;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-box:hover {
+            background-color: burlywood;
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .stat-title {
+            font-size: 0.9em;
+        }
+
+        /* Leaderboard Container */
+        .leaderboard-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: bisque;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 50px;
+        }
+        .leaderboard-container:hover{
+          background-color:burlywood;
+        }
+
+        .leaderboard-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #table-1 {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: center;
+            
+        }
+
+        #table-1 th, #table-1 td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .leaderboard-rank {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Badges Earned Section */
+        .badges-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: bisque;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 30px;
+        }
+
+        .badges-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .badges-container:hover{
+          background-color:burlywood;
+        }
+
+        /* Media Query for Small Screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-container,
+            .karma-container {
+                flex: none;
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-box {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            #table-1 {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+        /* Media Query for Extra Small Screens */
+        @media (max-width: 480px) {
+            .profile-pic {
+                width: 60px;
+                height: 60px;
+            }
+
+            .username {
+                font-size: 1.2em;
+            }
+
+            .karma-points {
+                font-size: 1.5em;
+            }
+
+            .leaderboard-title {
+                font-size: 1.3em;
+            }
+
+            .leaderboard-rank {
+                font-size: 1em;
+            }
+
+            .stat-number {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Profile and Karma Containers -->
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo_hackathon.jpg" alt="Gyaankumbh">
+        </div>
+        <ul>
+            <li class="item1"><a href="index.html">About Us</a></li>
+            <li class="item2"><a href="#">Study Material</a></li>
+            <li class="item3"><a href="#">Challenges and Quizzes</a></li>
+            <li class="item4"><a href="discussion_forum.html">Discussion Forum</a></li>
+            <li class="item5"><a href="escape_room.html">Escape Rooms</a></li>
+            <li class="item6"><a href="studyroom.html">Study Rooms</a></li>
+        </ul>
+        <form class="search-form" action="/search" method="GET">
+            <input type="text" name="q" class="search-input" placeholder="Search...">
+            <button type="submit" class="search-button">🔍</button>
+        </form>
+        <div id="user-pic">
+            <img src="user-pic.png" alt="user-pic" >
+        </div>
+        
+    </nav>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-container" onclick="window.location.href='credentials.html';">
+            <div class="profile-header">
+                <div class="profile-pic"></div>
+                <div class="profile-info">
+                    <div class="username">berry_sks2112</div>
+                    <br>
+                    <div class="join-date">Joined: 27 Oct 2023</div>
+                    <div class="level-bar">
+                        <div class="level-progress"></div>
+                    </div>
+                    <div> <h2> Streak:6</h2></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Karma Points Section -->
+        <div class="karma-container">
+            <div class="karma-header">Karma Points</div>
+            <div class="karma-points">1403</div>
+            <div class="karma-description">Total Karma Points</div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">301</div>
+            <div class="stat-title">Tests Started</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">300</div>
+            <div class="stat-title">Tests Completed</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">96%</div>
+            <div class="stat-title">Accuracy</div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-container">
+        <div class="leaderboard-title">Leaderboard</div>
+        <table id="table-1" >
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>UserName</th>
+                    <th>Karma Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>gunjan_123</td>
+                    <td>1800</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>chetan_singh</td>
+                    <td>1730</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ram_singh</td>
+                    <td>1650</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>berry_sks2112</td>
+                    <td>1403</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Badges Earned Section -->
+    <div class="badges-container">
+        <div class="badges-header">Badges Earned</div>
+        <h1>12</h1>
+    </div>
+</body>
+</html>

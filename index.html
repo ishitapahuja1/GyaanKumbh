@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDTech</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.google.com/specimen/Dancing+Script" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="swiper-bundle.min.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <div id="logo">
+      <img src="Gyaankumbh.png" alt="Gyaankumbh">
+    </div>
+    <ul>
+      <li class="item1"><a href="index.html">About Us</a></li>
+      <li class="item2"><a href="#">Study Material</a></li>
+      <li class="item3"><a href="discussion_forum.html">Discussion Forum</a></li>
+      <li class="item4"><a href="#">Challenges and Quizzes</a></li>
+      <li class="item4"><a href="escape_room.html">Escape Rooms</a></li>
+      <li class="item5"><a href="studyroom.html">Study Rooms</a></li>
+    </ul>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="Search...">
+      <button type="submit" class="search-button">🔍</button>
+    </form>
+    <div id="user-pic">
+      <img src="https://th.bing.com/th/id/OIP.f3DM2upCo-p_NPRwBAwbKQAAAA?rs=1&pid=ImgDetMain" alt="user-pic"
+        onclick="location.href='hackathon.html'" style="cursor: pointer;">
+    </div>
+  </nav>
+
+  <section id="home">
+    <div class="container">
+      <span class="text first-text">Welcome to</span>
+      <span class="text sec-text">GyaanKumbh</span>
+      <p> Welcome to GyaanKumbh – your ultimate hustle hub for acing exams and leveling up knowledge! Here, you’ll find
+        carefully curated study materials for all types of master’s competitive exams. Let’s crush those
+        goals, together!
+      </p>
+      <button class="btn" onclick="location.href='loginsignup.html'">Log in/Sign up</button>
+    </div>
+  </section>
+  <section id="about-us">
+    <div>
+      <h1 class="h-primary">About Us</h1>
+      <hr>
+      <p> Hello Everyone! We are Gunjan Ruhal and Bhavya Sinha, the creators behind GyaanKumbh – a pool of knowledge and
+        a journey towards success. We’re second-year CSE students at Indira Gandhi Delhi Technical University for Women,
+        and we built this EdTech platform with one goal in mind: to empower master's students with everything they need
+        to excel in their exams.
+        At GyaanKumbh, we’ve crafted an experience that offers personalized learning roadmaps based on each user’s
+        current knowledge level. Plus, with gamified features and the ability to create custom tests, learning becomes
+        not just effective but fun! And the best part? All these amazing features are absolutely free, because we
+        believe quality education should be accessible to everyone.
+        Let’s make success a shared journey!</p>
+    </div>
+    <img src="gunjan.jpg" alt="gunjan" class="admin-pic">
+    <img src="bhavya.jpg" alt="bhavya" class="admin-pic">
+  </section>
+
+  <section id="exams-offered">
+    <div>
+      <h1 class="h-primary">Exams</h1>
+      <hr>
+      <p>"The transition to college requires such careful and thoughtful planning. Below is a broad list of entrance
+        exams by field for all major master's degrees. These include subjects from engineering to management,
+        humanities, medical sciences and law to ensure that one can surf along their own lines of interest and
+        professional interests. Each subject is well-thought-out along with suitable entrance tests, thus leading one to
+        the correct direction of academic and professional success."</p>
+      <ul>
+        <div class="field">
+          <h3 class="h-secondary">Engineering and Technology</h3>
+          <ul>
+            <li>GATE (Graduate Aptitude Test in Engineering)</li>
+            <li>IIIT Hyderabad PGEE</li>
+          </ul>
+        </div>
+        <div class="field">
+          <h3 class="h-secondary">Science and Technology</h3>
+          <ul>
+            <li>CUET-PG(Common University Entrance Test for Postgraduate)</li>
+            <li>JEST (Joint Entrance Screening test)</li>
+          </ul>
+        </div>
+        <div class="field">
+          <h3 class="h-secondary">Management</h3>
+          <ul>
+            <li>CAT (Common Admission Test)</li>
+            <li>CMAT (Common Management Admission Test)</li>
+            <li>IIFT (Indian Institute of Foreign Trade)</li>
+            <li>TISSNET (Tata Institute of Social Sciences National Entrance Test)</li>
+          </ul>
+        </div>
+      </ul>
+      <ul>
+        <div class="field">
+          <h3 class="h-secondary">Humanities and Social Sciences</h3>
+          <ul>
+            <li>JNU Entrance Exam (JNUEE)</li>
+            <li>TISSNET (Tata Institute of Social Sciences)</li>
+            <li>DUET (Delhi University Entrance Test) </li>
+          </ul>
+        </div>
+        <div class="field">
+          <h3 class="h-secondary">Medical and Life Sciences</h3>
+          <ul>
+            <li>AIIMS PG Entrance Exam</li>
+            <li>ICAR AIEEA PG (Indian Council of Agricultural Research All India Entrance Examination for Admission)
+            </li>
+            <li>NEET-PG (National Eligibility cum Entrance Test for Postgraduates)</li>
+          </ul>
+        </div>
+        <div class="field">
+          <h3 class="h-secondary">Law</h3>
+          <ul>
+            <li>CLAT-PG(Common Law Admission Test - Postgraduate)</li>
+            <li>LSAT India (Law School Admission Test)</li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="testimonial mySwiper">
+      <div class="testi-content swiper-wrapper">
+        <div class="slide swiper-slide">
+          <img src="img1.jpg" alt="" class="image" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+            saepe provident dolorem a quaerat quo error facere nihil deleniti
+            eligendi ipsum adipisci, fugit, architecto amet asperiores
+            doloremque deserunt eum nemo.
+          </p>
+          <i class="bx bxs-quote-alt-left quote-icon"></i>
+          <div class="details">
+            <span class="name">Manish Malhotra</span>
+            <span class="job">GATE 2019</span>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="img2.jpg" alt="" class="image" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+            saepe provident dolorem a quaerat quo error facere nihil deleniti
+            eligendi ipsum adipisci, fugit, architecto amet asperiores
+            doloremque deserunt eum nemo.
+          </p>
+          <i class="bx bxs-quote-alt-left quote-icon"></i>
+          <div class="details">
+            <span class="name">Sunidhi Chauhan</span>
+            <span class="job">CAT 2020</span>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="img4.jpg" alt="" class="image" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam,
+            saepe provident dolorem a quaerat quo error facere nihil deleniti
+            eligendi ipsum adipisci, fugit, architecto amet asperiores
+            doloremque deserunt eum nemo.
+          </p>
+          <i class="bx bxs-quote-alt-left quote-icon"></i>
+          <div class="details">
+            <span class="name">Hitesh Gupta</span>
+            <span class="job">NEET PG 2021</span>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <!--swiper js-->
+  <script src="js/swiper-bundle.js"></script>
+
+  <!-- Javascript linked-->
+  <script src="js/script.js"></script>
+
+  <section id="contact-us">
+
+    <div class="contact-container">
+      <!-- Flexbox for Contact Information -->
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Our Address:</strong> Madrasa Road
+          Opposite St. James Church
+          Kashmere Gate
+          Delhi-110006</p>
+        <p><strong>Email Us:</strong>
+        <pre>
+        1)bhavya043btcse23@igdtuw.ac.in
+        2)gunjan066btcse23@igdtuw.ac.in
+      </pre>
+        </p>
+        <p><strong>Call Us:</strong>
+        <pre>
+            1) +91 9625305439
+            2) +91 93184 73910</pre> +1 123-456-7890</p>
+      </div>
+
+      <!-- Flexbox for Contact Form -->
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="contact">Contact Number:</label>
+          <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+
+          <label for="message">Message for Us:</label>
+          <textarea id="message" name="message" rows="4" placeholder="Write your message here" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>
